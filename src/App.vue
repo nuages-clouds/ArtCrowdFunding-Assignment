@@ -4,10 +4,8 @@
       <v-container>
         <v-layout text-xs-center wrap>
           <v-flex mb-4>
-            <h1 class="display-2 font-weight-bold mb-3">Crowdfunding</h1>
-            <p class="subheading font-weight-regular">
-              Utilizing Ethereum for Decentralized Crowdfunding
-            </p>
+            <h1 class="display-2 font-weight-bold mb-3">Project Funding</h1>
+            <p class="subheading font-weight-regular">No more escrows! Peer to Peer Funding!</p>
           </v-flex>
         </v-layout>
 
@@ -16,19 +14,13 @@
             <v-btn slot="activator" color="primary" dark>Start a Project</v-btn>
             <v-card>
               <v-card-title>
-                <span class="headline font-weight-bold mt-2 ml-4"
-                  >Bring your project to life</span
-                >
+                <span class="headline font-weight-bold mt-2 ml-4">Bring your project to life</span>
               </v-card-title>
               <v-card-text class="pt-0">
                 <v-container class="pt-0" grid-list-md>
                   <v-layout wrap>
                     <v-flex xs12>
-                      <v-text-field
-                        label="Title"
-                        persistent-hint
-                        v-model="newProject.title"
-                      ></v-text-field>
+                      <v-text-field label="Title" persistent-hint v-model="newProject.title"></v-text-field>
                     </v-flex>
                     <v-flex xs12>
                       <v-textarea
@@ -65,15 +57,13 @@
                     startProjectDialog = false;
                     newProject.isLoading = false;
                   "
-                  >Close</v-btn
-                >
+                >Close</v-btn>
                 <v-btn
                   color="blue darken-1"
                   flat
                   @click="startProject"
                   :loading="newProject.isLoading"
-                  >Save</v-btn
-                >
+                >Save</v-btn>
               </v-card-actions>
             </v-card>
           </v-dialog>
@@ -86,9 +76,11 @@
           <v-flex v-for="(project, index) in projectData" :key="index" xs12>
             <v-dialog v-model="project.dialog" width="800">
               <v-card>
-                <v-card-title class="headline font-weight-bold">{{
+                <v-card-title class="headline font-weight-bold">
+                  {{
                   project.projectTitle
-                }}</v-card-title>
+                  }}
+                </v-card-title>
                 <v-card-text>{{ project.projectDesc }}</v-card-text>
                 <v-card-actions>
                   <v-spacer></v-spacer>
@@ -96,16 +88,12 @@
                     color="blue darken-1"
                     flat="flat"
                     @click="projectData[index].dialog = false"
-                    >Close</v-btn
-                  >
+                  >Close</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
             <v-hover>
-              <v-card
-                slot-scope="{ hover }"
-                :class="`elevation-${hover ? 10 : 2}`"
-              >
+              <v-card slot-scope="{ hover }" :class="`elevation-${hover ? 10 : 2}`">
                 <v-card-title primary-title>
                   <div>
                     <div class="headline font-weight-bold">
@@ -114,17 +102,14 @@
                         :color="stateMap[project.currentState].color"
                         text-color="white"
                         class="mt-0"
-                        >{{ stateMap[project.currentState].text }}</v-chip
-                      >
+                      >{{ stateMap[project.currentState].text }}</v-chip>
                       {{ project.projectTitle }}
                     </div>
                     <br />
                     <span>{{ project.projectDesc.substring(0, 100) }}</span>
                     <span v-if="project.projectDesc.length > 100">
                       ...
-                      <a @click="projectData[index].dialog = true"
-                        >[Show full]</a
-                      >
+                      <a @click="projectData[index].dialog = true">[Show full]</a>
                     </span>
                     <br />
                     <br />
@@ -138,12 +123,8 @@
                       Goal of
                       <b>{{ project.goalAmount / 10 ** 18 }} ETH</b>
                     </small>
-                    <small v-if="project.currentState == 1"
-                      >wasn't achieved before deadline</small
-                    >
-                    <small v-if="project.currentState == 2"
-                      >has been achieved</small
-                    >
+                    <small v-if="project.currentState == 1">wasn't achieved before deadline</small>
+                    <small v-if="project.currentState == 2">has been achieved</small>
                   </div>
                 </v-card-title>
                 <v-flex
@@ -168,8 +149,7 @@
                     color="light-blue darken-1 white--text"
                     @click="fundProject(index)"
                     :loading="project.isLoading"
-                    >Fund</v-btn
-                  >
+                  >Fund</v-btn>
                 </v-flex>
                 <v-flex class="d-flex ml-3" xs12 sm6 md3>
                   <v-btn
@@ -178,24 +158,22 @@
                     v-if="project.currentState == 1"
                     @click="getRefund(index)"
                     :loading="project.isLoading"
-                    >Get refund</v-btn
-                  >
+                  >Get refund</v-btn>
                 </v-flex>
-                <v-card-actions
-                  v-if="project.currentState == 0"
-                  class="text-xs-center"
-                >
-                  <span class="font-weight-bold" style="width: 200px;"
-                    >{{ project.currentAmount / 10 ** 18 }} ETH</span
-                  >
+                <v-card-actions v-if="project.currentState == 0" class="text-xs-center">
+                  <span
+                    class="font-weight-bold"
+                    style="width: 200px;"
+                  >{{ project.currentAmount / 10 ** 18 }} ETH</span>
                   <v-progress-linear
                     height="10"
                     :color="stateMap[project.currentState].color"
                     :value="(project.currentAmount / project.goalAmount) * 100"
                   ></v-progress-linear>
-                  <span class="font-weight-bold" style="width: 200px;"
-                    >{{ project.goalAmount / 10 ** 18 }} ETH</span
-                  >
+                  <span
+                    class="font-weight-bold"
+                    style="width: 200px;"
+                  >{{ project.goalAmount / 10 ** 18 }} ETH</span>
                 </v-card-actions>
               </v-card>
             </v-hover>
