@@ -17,5 +17,5 @@ npm run serve
 ```
 
 -------------------------------
-#### Please refer to the document Blazers_GroupProject_V2.pdf for a project overview and requirements analysis.
+#### Please refer to the document [Blazers_GroupProject_V2.pdf](https://https://github.com/nuages-clouds/ArtCrowdFunding-Assignment/blob/master/Blazers_GroupProject_V2.pdf) for a project overview and requirements analysis.
 -------------------------------
