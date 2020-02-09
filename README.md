@@ -1,6 +1,6 @@
-# Crowdfunding
+# Crowdfunding --- Group Project Bidding Token
 
-A simple Ethereum-based crowdfunding decentralized application (dapp) where you can start and fund crowdfunding projects. It uses Ether, a cryptocurrency, as the medium of exchange (currency).
+A simple Ethereum-based decentralized crowdfunding application, where a project creator can initiate fundraising for the project, and organizations/entities can fund projects. Funding is facilitated by the use of Ether, a cryptocurrency, as the medium of exchange.
 
 ## Running It Locally
 
