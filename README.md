@@ -10,7 +10,7 @@ npm install
 npm install web3
 ```
 
-Start the application in a development environment via:
+#### Start the application in a development environment
 
 ```bash
 npm run serve
