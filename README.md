@@ -6,16 +6,16 @@ An Ethereum-based decentralized crowdfunding application, where a project creato
 
 ```bash
 
-> npm install
-> npm install web3
+npm install
+npm install web3
 ```
 
 #### Start the application in a development environment
 
 ```bash
-> npm run serve
+npm run serve
 ```
 
 -------------------------------
-##### Please refer to the document  [Blazers_GroupProject_V2.pdf](Blazers_GroupProject_V2.pdf)  for a project overview and requirements analysis.
+##### Please refer to the document  [pdf](Blazers_GroupProject_V2.pdf)  for a project overview and requirements analysis.
 -------------------------------
