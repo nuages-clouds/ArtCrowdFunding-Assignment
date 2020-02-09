@@ -1,4 +1,4 @@
-## Crowdfunding --- Group Project Bidding Token
+## Crowdfunding _(Group Project Bidding Token)_
 
 An Ethereum-based decentralized crowdfunding application, where a project creator can initiate fundraising for the project, and organizations can choose which projects to fund. Funding is facilitated by the use of the Ether cryptocurrency as the medium of exchange.
 
